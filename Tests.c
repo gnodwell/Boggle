@@ -1,0 +1,190 @@
+/* includes */
+#include <stdlib.h>
+#include <stddef.h>
+#include <stdio.h>
+#include <string.h>
+
+typedef struct user{
+	char name[100];
+	int maxScore;
+	int totalGames;
+	int totalScore;
+	struct user *next;
+
+} User;
+
+/* Returns the length of the linked list */
+int GetLength(User* head)
+{
+	if (head == NULL)
+	{
+		return 0;
+	}
+	User *current = head;
+	int count = 0;
+	while (current != NULL)
+	{
+		count++;
+		if (current->next == NULL)
+		{
+			return count;
+		}
+		current = (current)->next;
+	}
+	return 0;
+}
+
+/* test function to see what happens if we pass in a *head
+   that constantly links to itself, passing in an empty User pointer
+	 Test By: Justin Klein ID 1096403 */
+    void TestThreeUsers()
+     {
+     	User *userPtr1 = malloc(sizeof(struct user));
+     	User *userPtr2 = malloc(sizeof(struct user));
+     	User *userPtr3 = malloc(sizeof(struct user));
+         strcpy(userPtr1 -> name, "1");
+         strcpy(userPtr2 -> name, "2");
+         strcpy(userPtr3 -> name, "3");
+         userPtr1 -> maxScore = 1;
+         userPtr2 -> maxScore = 2;
+         userPtr3 -> maxScore = 3;
+         userPtr1 -> totalGames = 1;
+         userPtr2 -> totalGames = 2;
+         userPtr3 -> totalGames = 3;
+         userPtr1 -> totalScore = 1;
+         userPtr2 -> totalScore = 2;
+         userPtr3 -> totalScore = 3;
+         userPtr1 -> next = userPtr2;
+         userPtr2 -> next = userPtr3;
+         userPtr3 -> next = NULL;
+    
+         int result = GetLength(userPtr1);
+         if (result == 3) {
+             printf("TEST PASSED :  TestThreeUsers() is working fine for test input of three users, result is %d\n", result);
+         } else {
+             printf("TEST FAILED : TestThreeUsers() is not working fine for test input of three users, result is %d\n", result);
+         }
+     }
+    
+     void TestTwoUsers()
+     {
+         User *userPtr1 = malloc(sizeof(struct user));
+         User *userPtr2 = malloc(sizeof(struct user));
+         strcpy(userPtr1 -> name, "1");
+         strcpy(userPtr2 -> name, "2");
+         userPtr1 -> maxScore = 1;
+         userPtr2 -> maxScore = 2;
+         userPtr1 -> totalGames = 1;
+         userPtr2 -> totalGames = 2;
+         userPtr1 -> totalScore = 1;
+         userPtr2 -> totalScore = 2;
+         userPtr1 -> next = userPtr2;
+         userPtr2 -> next = NULL;
+    
+         int result = GetLength(userPtr1);
+         if (result == 2) {
+             printf("TEST PASSED :  TestTwoUsers() is working fine for test input of two users, result is %d\n", result);
+         } else {
+             printf("TEST FAILED : TestTwoUsers() is not working fine for test input of two users, result is %d\n", result);
+         }
+     }
+    
+     void TestOneUser()
+     {
+         User *userPtr1 = malloc(sizeof(struct user));
+         strcpy(userPtr1 -> name, "1");
+         userPtr1 -> maxScore = 1;
+         userPtr1 -> totalGames = 1;
+         userPtr1 -> totalScore = 1;
+         userPtr1 -> next = NULL;
+    
+         int result = GetLength(userPtr1);
+         if (result == 1) {
+             printf("TEST PASSED :  TestOneUser() is working fine for test input of one user, result is %d\n", result);
+         } else {
+             printf("TEST FAILED : TestOneUser() is not working fine for test input of one user, result is %d\n", result);
+         }
+     }
+    
+     void TestZeroUsers()
+     {
+         User *userPtr1 = NULL;
+    
+         int result = GetLength(userPtr1);
+         if (result == 0) {
+             printf("TEST PASSED :  TestZeroUsers() is working fine for test input of no user, result is %d\n", result);
+         } else {
+             printf("TEST FAILED : TestZeroUsers() is not working fine for test input of no user, result is %d\n", result);
+         }
+     }
+    
+    
+     void TestLoopingUser()
+     {
+         User *userPtr1 = malloc(sizeof(struct user));
+         strcpy(userPtr1 -> name, "1");
+         userPtr1 -> maxScore = 1;
+         userPtr1 -> totalGames = 1;
+         userPtr1 -> totalScore = 1;
+         userPtr1 -> next = userPtr1;
+    
+         int result = GetLength(userPtr1);
+         printf("Result is %d\n", result);
+     }
+    
+     void TestIntegerUser()
+     {
+         int result = GetLength(10);
+         printf("Result is %d\n", result);
+    
+     }
+    
+	 int InfiniteHead (User *head){
+		 strcpy(head->name, "head");
+		 head->maxScore=100;
+		 head->totalGames=3;
+		 head->totalScore=600;
+		 head->next=head;
+		 return (GetLength(head));
+	 }
+
+	 /* test function to see what happens if we pass in a *head
+	    that's null, passing in an empty User pointer
+	 	 Test By: Justin Klein ID 1096403 */
+	 	 int NullHead (User *head){
+	 		 strcpy(head->name, "\0");
+	 		 head->maxScore=0;
+	 		 head->totalGames=0;
+	 		 head->totalScore=0;
+	 		 head->next=NULL;
+	 		 return (GetLength(head));
+	 	 }
+
+		 /* test function to see what happens if we pass in a name
+				that's longer than 100 chars, passing in an empty User pointer
+			 Test By: Justin Klein ID 1096403 */
+			 int LongName (User *head){
+
+				 int i=0;
+				 char longName[101];
+				 for (i=0; i< 101; i++){
+					 longName[i]='a';
+				 }
+
+				 strcpy(head->name,longName);
+				 head->maxScore=0;
+				 head->totalGames=0;
+				 head->totalScore=0;
+				 head->next=NULL;
+				 return (GetLength(head));
+			 }
+
+			/*main function to test*/
+			int main (int argc, char **argv){
+				 User *head=malloc(sizeof(struct user));
+				 printf("%d -infiniteHead\n", InfiniteHead(User *head));
+				 printf("%d -NullHead\n", NullHead(User *head));
+				 printf("%d -LongName\n", LongName(User *head));
+				 free(head);
+				 return 0;
+			 }
