@@ -1,10 +1,10 @@
-all: JustinKleinTests
+all: Test
 
-JustinKleinTests.c: JustinKleinTests.c
-	-gcc -ansi -Wall -c JustinKleinTests.c
+Test.c: Test.c
+	-gcc -ansi -Wall -c Test.c
 
-JustinKleinTests: JustinKleinTests.o
-	-gcc -asni -Wall JustinKleinTests.o -o JustinKleinTests
+Test: Test.o
+	-gcc -asni -Wall Test.o -o Test
 
 clean:
-	-rm *.o JustinKleinTests
+	-rm *.o Test
