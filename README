@@ -1,0 +1,5 @@
+Compilation: make all
+Execution: ./Boggle
+Decription: Plays the famous word scramble game boggle. Here is a Wikipedia link for more information on how to play the game:
+https://en.wikipedia.org/wiki/Boggle
+
