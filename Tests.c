@@ -282,7 +282,6 @@ int GetLength(User* head)
 				 TestTwoUsers();
 				 TestOneUser();
 				 TestZeroUsers();
-				 TestIntegerUser();
 				 
 				 
 				 TestDataFlowThreeUsers();
@@ -295,6 +294,8 @@ int GetLength(User* head)
 				 
 				 printf("%d -infiniteHead\n", InfiniteHead(head));
                  TestLoopingUser();
+                 TestIntegerUser();
+
 
 				 free(head);
 				 return 0;
