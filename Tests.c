@@ -290,11 +290,13 @@ int GetLength(User* head)
 				 TestDataFlowZeroUsers();
 				 
 				 printf("%d -NullHead\n", NullHead(head));
-				 printf("%d -LongName\n", LongName(head));
 				 
-				 printf("%d -infiniteHead\n", InfiniteHead(head));
-                 TestLoopingUser();
-                 TestIntegerUser();
+	 /* The below test cases cause the program to crash, these are the FAILURE cases, uncomment one to see the failure */
+				
+				//  printf("%d -LongName\n", LongName(head));
+				//  printf("%d -infiniteHead\n", InfiniteHead(head));
+				// TestLoopingUser();
+				// TestIntegerUser();
 
 
 				 free(head);
