@@ -267,9 +267,9 @@ int GetLength(User* head)
     
          int result = GetLength(userPtr1);
          if (result == 0) {
-             printf("TEST PASSED :  TestZeroUsers() is working fine for test input of no user, result is %d\n", result);
+             printf("TEST PASSED :  TestDataFlowZeroUsers() is working fine for test input of no user, result is %d\n", result);
          } else {
-             printf("TEST FAILED : TestZeroUsers() is not working fine for test input of no user, result is %d\n", result);
+             printf("TEST FAILED : TestDataFlowZeroUsers() is not working fine for test input of no user, result is %d\n", result);
          }
      }
 
