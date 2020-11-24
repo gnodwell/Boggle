@@ -185,6 +185,93 @@ int GetLength(User* head)
 				 head->next=NULL;
 				 return (GetLength(head));
 			 }
+			 
+			 
+			 /* test passing in a three users in the list 
+        Test By: Matthew McArdle ID 1097041*/
+    void TestDataFlowThreeUsers()
+     {
+     	User *userPtr1 = malloc(sizeof(struct user));
+     	User *userPtr2 = malloc(sizeof(struct user));
+     	User *userPtr3 = malloc(sizeof(struct user));
+         strcpy(userPtr1 -> name, "1");
+         strcpy(userPtr2 -> name, "2");
+         strcpy(userPtr3 -> name, "3");
+         userPtr1 -> maxScore = 1;
+         userPtr2 -> maxScore = 2;
+         userPtr3 -> maxScore = 3;
+         userPtr1 -> totalGames = 1;
+         userPtr2 -> totalGames = 2;
+         userPtr3 -> totalGames = 3;
+         userPtr1 -> totalScore = 1;
+         userPtr2 -> totalScore = 2;
+         userPtr3 -> totalScore = 3;
+         userPtr1 -> next = userPtr2;
+         userPtr2 -> next = userPtr3;
+         userPtr3 -> next = NULL;
+    
+         int result = GetLength(userPtr1);
+         if (result == 3) {
+             printf("TEST PASSED :  TestDataFlowThreeUsers() is working fine for test input of three users, result is %d\n", result);
+         } else {
+             printf("TEST FAILED : TestDataFlowThreeUsers() is not working fine for test input of three users, result is %d\n", result);
+         }
+     }
+    /* test passing in a two users in the list 
+        Test By: Matthew McArdle ID 1097041*/
+     void TestTwoUsers()
+     {
+         User *userPtr1 = malloc(sizeof(struct user));
+         User *userPtr2 = malloc(sizeof(struct user));
+         strcpy(userPtr1 -> name, "1");
+         strcpy(userPtr2 -> name, "2");
+         userPtr1 -> maxScore = 1;
+         userPtr2 -> maxScore = 2;
+         userPtr1 -> totalGames = 1;
+         userPtr2 -> totalGames = 2;
+         userPtr1 -> totalScore = 1;
+         userPtr2 -> totalScore = 2;
+         userPtr1 -> next = userPtr2;
+         userPtr2 -> next = NULL;
+    
+         int result = GetLength(userPtr1);
+         if (result == 2) {
+             printf("TEST PASSED :  TestDataFlowTwoUsers() is working fine for test input of two users, result is %d\n", result);
+         } else {
+             printf("TEST FAILED : TestDataFlowTwoUsers() is not working fine for test input of two users, result is %d\n", result);
+         }
+     }
+    /* test passing in a single user in the list 
+        Test By: Matthew McArdle ID 1097041*/
+     void TestDataFlowOneUser()
+     {
+         User *userPtr1 = malloc(sizeof(struct user));
+         strcpy(userPtr1 -> name, "1");
+         userPtr1 -> maxScore = 1;
+         userPtr1 -> totalGames = 1;
+         userPtr1 -> totalScore = 1;
+         userPtr1 -> next = NULL;
+    
+         int result = GetLength(userPtr1);
+         if (result == 1) {
+             printf("TEST PASSED :  TestDataFlowOneUser() is working fine for test input of one user, result is %d\n", result);
+         } else {
+             printf("TEST FAILED : TestDataFlowOneUser() is not working fine for test input of one user, result is %d\n", result);
+         }
+     }
+    /* test passing in a null pointer
+        Test By: Matthew McArdle ID 1097041*/
+     void TestDataFlowZeroUsers()
+     {
+         User *userPtr1 = NULL;
+    
+         int result = GetLength(userPtr1);
+         if (result == 0) {
+             printf("TEST PASSED :  TestZeroUsers() is working fine for test input of no user, result is %d\n", result);
+         } else {
+             printf("TEST FAILED : TestZeroUsers() is not working fine for test input of no user, result is %d\n", result);
+         }
+     }
 
 			/*main function to test*/
 			int main (int argc, char **argv){
@@ -199,6 +286,12 @@ int GetLength(User* head)
 				 TestZeroUsers();
 				 TestLoopingUser();
 				 TestIntegerUser();
+				 
+				 
+				 TestDataFlowThreeUsers();
+				 TestDataFlowTwoUsers();
+				 TestDataFlowOneUser();
+				 TestDataFlowZeroUsers();
 				 
 				 free(head);
 				 return 0;
