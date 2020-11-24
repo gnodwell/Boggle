@@ -34,9 +34,8 @@ int GetLength(User* head)
 	return 0;
 }
 
-/* test function to see what happens if we pass in a *head
-   that constantly links to itself, passing in an empty User pointer
-	 Test By: Justin Klein ID 1096403 */
+/* test passing in a three users in the list 
+        Test By: Matthew McArdle ID 1097041*/
     void TestThreeUsers()
      {
      	User *userPtr1 = malloc(sizeof(struct user));
@@ -65,7 +64,8 @@ int GetLength(User* head)
              printf("TEST FAILED : TestThreeUsers() is not working fine for test input of three users, result is %d\n", result);
          }
      }
-    
+    /* test passing in a two users in the list 
+        Test By: Matthew McArdle ID 1097041*/
      void TestTwoUsers()
      {
          User *userPtr1 = malloc(sizeof(struct user));
@@ -88,7 +88,8 @@ int GetLength(User* head)
              printf("TEST FAILED : TestTwoUsers() is not working fine for test input of two users, result is %d\n", result);
          }
      }
-    
+    /* test passing in a single user in the list 
+        Test By: Matthew McArdle ID 1097041*/
      void TestOneUser()
      {
          User *userPtr1 = malloc(sizeof(struct user));
@@ -105,7 +106,8 @@ int GetLength(User* head)
              printf("TEST FAILED : TestOneUser() is not working fine for test input of one user, result is %d\n", result);
          }
      }
-    
+    /* test passing in a null pointer
+        Test By: Matthew McArdle ID 1097041*/
      void TestZeroUsers()
      {
          User *userPtr1 = NULL;
@@ -118,7 +120,8 @@ int GetLength(User* head)
          }
      }
     
-    
+    /* test passing in a looping linked list
+        Test By: Matthew McArdle ID 1097041*/
      void TestLoopingUser()
      {
          User *userPtr1 = malloc(sizeof(struct user));
@@ -131,14 +134,18 @@ int GetLength(User* head)
          int result = GetLength(userPtr1);
          printf("Result is %d\n", result);
      }
-    
+    /* test passing in an inncorrect data type 
+        Test By: Matthew McArdle ID 1097041*/
      void TestIntegerUser()
      {
          int result = GetLength(10);
          printf("Result is %d\n", result);
     
      }
-    
+ 
+    /* test function to see what happens if we pass in a *head
+        that constantly links to itself, passing in an empty User pointer
+	    Test By: Justin Klein ID 1096403 */ 
 	 int InfiniteHead (User *head){
 		 strcpy(head->name, "head");
 		 head->maxScore=100;
@@ -185,6 +192,14 @@ int GetLength(User* head)
 				 printf("%d -infiniteHead\n", InfiniteHead(User *head));
 				 printf("%d -NullHead\n", NullHead(User *head));
 				 printf("%d -LongName\n", LongName(User *head));
+				 
+				 TestThreeUsers();
+				 TestTwoUsers();
+				 TestOneUser();
+				 TestZeroUsers();
+				 TestLoopingUser();
+				 TestIntegerUser();
+				 
 				 free(head);
 				 return 0;
 			 }
