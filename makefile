@@ -1,10 +1,10 @@
-all: Test
+all: Tests
 
-Test.c: Test.c
-	-gcc -ansi -Wall -c Test.c
+Tests.c: Tests.c
+	-gcc -ansi -Wall -c Tests.c
 
-Test: Test.o
-	-gcc -asni -Wall Test.o -o Test
+Tests: Tests.o
+	-gcc -asni -Wall Tests.o -o Tests
 
 clean:
-	-rm *.o Test
+	-rm *.o Tests
