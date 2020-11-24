@@ -159,12 +159,8 @@ int GetLength(User* head)
 	    that's null, passing in an empty User pointer
 	 	 Test By: Justin Klein ID 1096403 */
 	 	 int NullHead (User *head){
-	 		 strcpy(head->name, "\0");
-	 		 head->maxScore=0;
-	 		 head->totalGames=0;
-	 		 head->totalScore=0;
-	 		 head->next=NULL;
-	 		 return (GetLength(head));
+	 		 User *tester = NULL;
+	 		 return (GetLength(tester));
 	 	 }
 
 		 /* test function to see what happens if we pass in a name
