@@ -276,7 +276,7 @@ int GetLength(User* head)
 			/*main function to test*/
 			int main (int argc, char **argv){
 				 User *head=malloc(sizeof(struct user));
-				 printf("%d -infiniteHead\n", InfiniteHead(head));
+
 				 printf("%d -NullHead\n", NullHead(head));
 				 printf("%d -LongName\n", LongName(head));
 				 
@@ -284,7 +284,6 @@ int GetLength(User* head)
 				 TestTwoUsers();
 				 TestOneUser();
 				 TestZeroUsers();
-				 TestLoopingUser();
 				 TestIntegerUser();
 				 
 				 
@@ -293,6 +292,10 @@ int GetLength(User* head)
 				 TestDataFlowOneUser();
 				 TestDataFlowZeroUsers();
 				 
+				 
+				 printf("%d -infiniteHead\n", InfiniteHead(head));
+                 TestLoopingUser();
+
 				 free(head);
 				 return 0;
 			 }
