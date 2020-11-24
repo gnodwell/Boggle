@@ -219,7 +219,7 @@ int GetLength(User* head)
      }
     /* test passing in a two users in the list 
         Test By: Matthew McArdle ID 1097041*/
-     void TestTwoUsers()
+     void TestDataFlowTwoUsers()
      {
          User *userPtr1 = malloc(sizeof(struct user));
          User *userPtr2 = malloc(sizeof(struct user));
@@ -276,9 +276,9 @@ int GetLength(User* head)
 			/*main function to test*/
 			int main (int argc, char **argv){
 				 User *head=malloc(sizeof(struct user));
-				 printf("%d -infiniteHead\n", InfiniteHead(User *head));
-				 printf("%d -NullHead\n", NullHead(User *head));
-				 printf("%d -LongName\n", LongName(User *head));
+				 printf("%d -infiniteHead\n", InfiniteHead(head));
+				 printf("%d -NullHead\n", NullHead(head));
+				 printf("%d -LongName\n", LongName(head));
 				 
 				 TestThreeUsers();
 				 TestTwoUsers();
